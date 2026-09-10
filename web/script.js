@@ -12,7 +12,7 @@ document.getElementById("loginform").addEventListener("submit", function(event){
     }
 
     if (mail === "admin@admin.com" && password === "1234"){
-        mensaje.innerHTML = '<div class="alert alert-success"> Inicio de sesion correcto, redireccionando...</div>';
+        window.location.href = "index.html";
     }else{
         mensaje.innerHTML = '<div class="alert alert-danger"> Credenciales no encontradas </div>';
     }

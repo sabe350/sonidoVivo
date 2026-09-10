@@ -12,7 +12,7 @@ document.getElementById("signupform").addEventListener("submit", function(event)
     let mensaje2 = document.getElementById("mensaje2");
 
     if (nombre && apellido && password && password2 && mail && phone != null){
-        mensaje2.innerHTML = '<div class="alert alert-success"> Registro exitoso, redirigiendo.... </div>';
+        window.location.href = "index.html";;
     }else{
         mensaje2.innerHTML = '<div class="alert alert-danger"> Debe rellenar todos los campos </div>';
     }
