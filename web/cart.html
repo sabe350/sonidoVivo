@@ -54,11 +54,57 @@
                 </div>
             </nav>
         </header>
-        <section class="py-5">
 
-        </section>
+        <div class="container py-5">
+            <div class="row gy-5">
+                <div class="col-lg-8">
+                    <table class="table table-bordered">
+                        <thread>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                        </thread>
+                    </table>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Resumen de compra</h5>
+                        </div>
+                        <div class="card-body align-items-center">
+                            <label>Cupon de descuento</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-light bg-primary" type="button">Canjear</button>
+                                <input type="text" class="form-control" placeholder="Ingrese cupon de descuento" aria-label="Cupon">
+                            </div>
+                            <hr>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <span class="form-label">Subtotal</span>
+                                <span class="text-body-secondary">$</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <span class="form-label">Descuento</span>
+                                <span class="text-body-secondary">$</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <span class="form-label">Impuesto</span>
+                                <span class="text-body-secondary">$</span>
+                            </li>
+                        </div>
+                        <div class="card-footer">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <span class="form-label ">Total</span>
+                                <span class="text-body-secondary">$</span>
+                            </li>
+                                <div class="text-center"><a class="btn btn-outline-light mt-auto bg-primary w-100" href="#">Pagar</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <footer class="d-flex flex-wrap justify-content-center align-items-center py-5 my-5 border-top bg-light">
+        <footer class="d-flex flex-wrap justify-content-center align-items-center py-5 border-top bg-light">
             <p class="text-center text-body-secondary">Copyright © Sonido Vivo 2026</p>
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                 <li class="ms-3">
