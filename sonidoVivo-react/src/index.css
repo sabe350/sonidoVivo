@@ -10,7 +10,7 @@ body{
     padding: 0;
     height: 810px;
 
-    background-image: url(img/background01.jpg);
+    background-image: url(assets/img/background01.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,7 +54,7 @@ body{
     padding: 0;
     height: 810px;
 
-    background-image: url(img/background02.jpg);
+    background-image: url(assets/img/background02.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -98,7 +98,7 @@ body{
     padding: 0;
     height: 810px;
 
-    background-image: url(img/background03.jpg);
+    background-image: url(assets/img/background03.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
