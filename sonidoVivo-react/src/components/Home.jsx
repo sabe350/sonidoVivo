@@ -2,14 +2,15 @@ import React from 'react'
 
 function Home() {
   return (
-    <div>        <section class="py-5">
+    <div>  
+        <section class="py-5">
             <h1 class="text-center">Destacado</h1>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="assets/img/products/epiphonees335.jpg" alt="..." width="450" height="300"/>
+                            <img class="card-img-top" src='./assets/img/products/epiphonees335.jpg' alt="..." width="450" height="300"/>
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <h4><a href="prodpage25.html" class="stretched-link text-black" style={{textDecoration: 'none'}}>Guitarra Eléctrica Semi-hollow</a></h4>
@@ -105,7 +106,7 @@ function Home() {
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="assets/img/products/blueyeti.jpg" alt="..." width="450" height="300"/>
+                            <img class="card-img-top" src={'/assets/img/products/blueyeti.jpg'} alt="..." width="450" height="300"/>
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <h4><a href="prodpage74.html" class="stretched-link text-black" style={{textDecoration: 'none'}}>Micrófono USB de Condensador</a></h4>
@@ -137,8 +138,8 @@ function Home() {
 
                 </div>
             </div>
-            </section>
-        </div>
+        </section>
+    </div>
   )
 }
 
