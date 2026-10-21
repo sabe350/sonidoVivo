@@ -1,36 +1,80 @@
 import React from 'react'
+import { useState } from 'react';
+
 
 function Login() {
+
+    const TEMP_MAIL = "admin@admin.com";
+    const TEMP_PASSWORD = "1234";
+
+    const [usermail, setMail] = useState("");
+    const [userpass, setPassword] = useState("");
+    const [mensaje, setMessage] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (!usermail){
+            setMessage("Debe rellenar todos los campos")
+        }else if (!usermail.includes("@")){
+            setMessage("Correo invalido")
+        }else if (usermail == TEMP_MAIL && userpass == TEMP_PASSWORD) {
+            window.location.href = "index.html";
+        } else {
+            setMessage("Credenciales invalidas")
+        }
+
+        if (!userpass){
+            setMessage("Debe rellenar todos los campos")
+        }else if (usermail == TEMP_MAIL && userpass == TEMP_PASSWORD) {
+            window.location.href = "index.html";
+        } else {
+            setMessage("Credenciales invalidas")
+        }
+          
+    }
+
   return (
     <div>
-        <div class="text-center" id="loginContainer">
-        <div class="login ">
-            <div class="login-panel">
+        <div className="text-center" id="loginContainer">
+        <div className="login ">
+            <div className="login-panel">
                 <h1>Iniciar Sesion</h1>
-                <form id="loginform">
+                <form id="loginform" onSubmit={handleSubmit}>
 
-                    <div class="mb-3">
-                        <label for="mail" class="form-label">Correo electronico</label>
-                        <input type="text" class="form-control text-center" id="mail" placeholder="Ingrese su correo electronico"/>
+                    <div className="mb-3">
+                        <label for="mail" className="form-label">Correo electronico</label>
+                        <input 
+                            type="text" 
+                            className="form-control 
+                            text-center" 
+                            id="mail" 
+                            value={usermail}
+                            onChange={(e) => setMail(e.target.value)}
+                            placeholder="Ingrese su correo electronico"/>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label">
+                    <div className="mb-3">
+                        <label for="password" className="form-label">
                             Contraseña
                         </label>
                         <input 
                             type="password"
                             id="password"
-                            class="form-control text-center"
+                            value={userpass}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="form-control text-center"
                             placeholder="Ingrese su Contraseña"/>
                     </div>
 
                     <button
                         type="submit"
-                        class="btn btn-primary w-100">
+                        className="btn btn-primary w-100">
                         Iniciar Sesion
                     </button>
-                    <div id="mensaje" class="text-center mt-3"></div>
+                    <div id="mensaje" className="text-center mt-3">
+                        {mensaje && <div class="alert alert-danger">{mensaje}</div>}
+                    </div>
                 </form>
             </div>
             </div>

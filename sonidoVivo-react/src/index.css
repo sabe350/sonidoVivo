@@ -1,8 +1,14 @@
-body{
-    padding: 0;
-    height: 100%;
-    margin: 0;
+html {
+    min-height: 100%;
 }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 
 #loginContainer{
     flex: 1;
@@ -123,7 +129,20 @@ body{
     height: 50%;
 }
 
-
-footer{
+footer {
+    position: static;
+    width: 100%;
+    margin-top: auto;
     flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1;
+    width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
