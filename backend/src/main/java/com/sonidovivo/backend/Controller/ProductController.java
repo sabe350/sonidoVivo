@@ -2,8 +2,8 @@ package com.sonidovivo.backend.Controller;
 
 import com.sonidovivo.backend.Model.Product;
 import com.sonidovivo.backend.Service.ProductService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@Api(value = "Sistema de gestion de inventario")
+@Tag(name = "Sistema de gestion de inventario")
 public class ProductController {
     @Autowired
     private ProductService productService;
