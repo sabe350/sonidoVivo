@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Category1, Category10, Category2, Category3, Category4, Category5, Category6, Category7, Category8, Category9 } from './components/Category'
 import { Product1, Product10, Product101, Product102, Product103, Product104, Product12, Product13, Product14, Product15, Product2, Product21, Product22, Product23, Product24, Product3, Product31, Product32, Product4, Product41, Product42, Product43, Product44, Product5, Product51, Product52, Product53, Product6, Product61, Product62, Product63, Product7, Product71, Product72, Product73, Product8, Product81, Product82, Product83, Product84, Product85, Product9, Product91, Product92, Product93, Product94, Product95, Product96, Product97, Product98, Product99 } from './components/Product'
+import ProductList from './components/BookList'
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
           <Route path='/prodpage103.html' element = {<Product102/>}/>
           <Route path='/prodpage104.html' element = {<Product103/>}/>
           <Route path='/prodpage105.html' element = {<Product104/>}/>
+          <Route path='/api' element={<ProductList/>}/>
         </Routes>
       </BrowserRouter>
     <Footer />

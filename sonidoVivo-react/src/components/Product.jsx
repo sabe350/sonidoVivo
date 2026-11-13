@@ -1,5 +1,22 @@
 import React from 'react'
 import Related from './Related'
+import ProductService from './ProductService'
+
+const ProductList = () =>{
+    const [products, setProducts]=useState([]);
+
+        const fetchProducts = () =>{
+        ProductService.getAllProducts().then(response => {
+            setProducts(response.data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    };
+
+    useEffect(() => {
+        fetchProducts();
+    },[]);
+};
 
 export function Product1() {
   return (
@@ -18,7 +35,7 @@ export function Product1() {
                             <span>Stock: 8</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$129,990</span>   
+                            <span>$</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}} />
