@@ -1,4 +1,18 @@
-import React from 'react'
+import React, { use, useEffect, useState } from 'react'
+import ProductService from '../services/ProductService'
+
+function Prod({id, children}){
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        ProductService.getProductsById(id).then(response => {
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data)
+        }).catch(error => console.log('Error al obtener producto', id, error));
+    }, [id]);
+
+    return children(products);
+}
 
 function Home() {
   return (
@@ -8,14 +22,15 @@ function Home() {
             <div className="container px-4 px-lg-5 mt-5">
                 <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
+                    <Prod id={'GE005'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src='./assets/img/products/epiphonees335.jpg' alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage25.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Guitarra Eléctrica Semi-hollow</a></h4>
-                                    <h5>Epiphone ES-335</h5>
-                                    $549,990
+                                    <h4><a href="prodpage25.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -23,15 +38,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
 
+                    <Prod id={'GA003'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/yamahac40.jpg" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage3.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Guitarra Acústica Clásica 4/4</a></h4>
-                                    <h5>Yamaha C40</h5>
-                                    $89,990
+                                    <h4><a href="prodpage3.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -39,15 +56,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
 
+                    <Prod id={'BA002'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/fenderplayjazz.jpg" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage32.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Bajo Eléctrico Jazz Bass</a></h4>
-                                    <h5>Fender Player Jazz</h5>
-                                    $699,990
+                                    <h4><a href="prodpage32.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -55,15 +74,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
 
+                    <Prod id={'BT004'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/zildjian14hihat.jpg" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage44.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Platillo Hi-Hat 14"</a></h4>
-                                    <h5>Zildjian A Series</h5>
-                                    $149,990
+                                    <h4><a href="prodpage44.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -71,15 +92,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
                     
+                    <Prod id={'TC003'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/arturiaminilabmkii.jpg" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage53.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Sintetizador 49 teclas</a></h4>
-                                    <h5>Arturia MiniLab MKII</h5>
-                                    $129,990
+                                    <h4><a href="prodpage53.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -87,15 +110,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
                     
+                    <Prod id={'AM003'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/hartkehd100.webp" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage63.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Amplificador Bajo 100W</a></h4>
-                                    <h5>Hartke HD100</h5>
-                                    $299,990
+                                    <h4><a href="prodpage63.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -103,15 +128,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
 
+                    <Prod id={'MI004'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src={'/assets/img/products/blueyeti.jpg'} alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage74.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Micrófono USB de Condensador</a></h4>
-                                    <h5>Blue Yeti</h5>
-                                    $299,990
+                                    <h4><a href="prodpage74.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -119,15 +146,17 @@ function Home() {
                             </div>
                         </div>
                     </div>
-                    
+                    )}</Prod>
+
+                    <Prod id={'PE006'}>{products => (
                     <div className="col mb-5">
                         <div className="card h-100">
                             <img className="card-img-top" src="assets/img/products/ibanezts9.jpeg" alt="..." width="450" height="300"/>
                             <div className="card-body p-4">
                                 <div className="text-center">
-                                    <h4><a href="prodpage86.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>Pedal Overdrive</a></h4>
-                                    <h5>Ibanez TS9</h5>
-                                    $99,990
+                                    <h4><a href="prodpage86.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
+                                    <h5>{products?.marca} {products?.modelo}</h5>
+                                    ${products?.precio}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -135,6 +164,7 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    )}</Prod>
 
                 </div>
             </div>

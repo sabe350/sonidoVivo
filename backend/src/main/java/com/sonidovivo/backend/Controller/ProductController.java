@@ -36,6 +36,8 @@ public class ProductController {
         Product existingProduct = productService.getProductById(id);
         if (existingProduct != null){
             existingProduct.setNombre(product.getNombre());
+            existingProduct.setMarca(product.getMarca());
+            existingProduct.setModelo(product.getModelo());
             existingProduct.setPrecio(product.getPrecio());
             existingProduct.setStock(product.getStock());
             return productService.saveProduct(existingProduct);

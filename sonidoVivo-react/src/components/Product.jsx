@@ -1,24 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Related from './Related'
-import ProductService from './ProductService'
+import ProductService from '../services/ProductService'
 
-const ProductList = () =>{
-    const [products, setProducts]=useState([]);
 
-        const fetchProducts = () =>{
-        ProductService.getAllProducts().then(response => {
-            setProducts(response.data);
+export function Product1() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GA001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
         }).catch(error => {
             console.log('Error al obtener productos:', error);
         });
-    };
+    }, []);
 
-    useEffect(() => {
-        fetchProducts();
-    },[]);
-};
 
-export function Product1() {
   return (
     <div>
         <section className="py-5">
@@ -27,15 +26,16 @@ export function Product1() {
                     <div className="col-md-6">
                         <img className="img-thumbnail" src="assets/img/products/yamahaf310.jpg" alt="..." width="300" height="300"/>
                     </div>
+                    
                     <div className="col-md-6">
-                        <div className="small md-1">GA001</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Acústica Folk</h1>
-                        <h5>Yamaha F310</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                         <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 8</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}} />
@@ -52,10 +52,21 @@ export function Product1() {
         <Related/>
     </div>
     
-  )
-}
-
+  );
+};
 export function Product12() {
+        const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GA002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -65,14 +76,14 @@ export function Product12() {
                         <img className="img-thumbnail" src="assets/img/products/fendercd60s.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GA002</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Acústica Dreadnought</h1>
-                        <h5>Fender CD-60S</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$189,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -92,6 +103,19 @@ export function Product12() {
 }
 
 export function Product13() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GA003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -101,14 +125,14 @@ export function Product13() {
                         <img className="img-thumbnail" src="assets/img/products/yamahac40.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GA003</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Acústica Clásica 4/4</h1>
-                        <h5>Yamaha C40</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 10</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$89,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -128,6 +152,19 @@ export function Product13() {
 }
 
 export function Product14() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GA004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -137,14 +174,14 @@ export function Product14() {
                         <img className="img-thumbnail" src="assets/img/products/TakamineGN20CE.png" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GA004</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Electroacústica</h1>
-                        <h5>Takamine GN20CE</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$349,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -164,6 +201,19 @@ export function Product14() {
 }
 
 export function Product15() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GA005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -173,14 +223,14 @@ export function Product15() {
                         <img className="img-thumbnail" src="assets/img/products/yamahajr1.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GA005</div>
-                        <h1 className="display-5 fw-bolder">Guitarra 3/4 Niños</h1>
-                        <h5>Yamaha JR1</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 6</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$79,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -200,6 +250,19 @@ export function Product15() {
 }
 
 export function Product2() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GE001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -209,14 +272,14 @@ export function Product2() {
                         <img className="img-thumbnail" src="assets/img/products/squireafinitystrat.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GE001</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Eléctrica Stratocaster</h1>
-                        <h5>Squire Affinity Strat</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$249,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -236,6 +299,19 @@ export function Product2() {
 }
 
 export function Product21() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GE002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -245,14 +321,14 @@ export function Product21() {
                         <img className="img-thumbnail" src="assets/img/products/epiphonelespaulstd.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GE002</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Eléctrica Les Paul</h1>
-                        <h5>Epiphone Les Paul Standard</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$329,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -272,6 +348,20 @@ export function Product21() {
 }
 
 export function Product22() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GE003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -281,14 +371,14 @@ export function Product22() {
                         <img className="img-thumbnail" src="assets/img/products/epiphonesgstd.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GE003</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Eléctrica SG</h1>
-                        <h5>Epiphone SG Standard</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$319,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -308,6 +398,20 @@ export function Product22() {
 }
 
 export function Product23() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GE004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -316,15 +420,15 @@ export function Product23() {
                     <div className="col-md-6">
                         <img className="img-thumbnail" src="assets/img/products/squireaffinitytele.jpg" alt="..." width="300" height="300"/>
                     </div>
-                    <div className="col-md-6">
-                        <div className="small md-1">GE004</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Eléctrica Telecaster</h1>
-                        <h5>Squier Affinity Telecaster</h5>
+                      <div className="col-md-6">
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$239,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -344,6 +448,20 @@ export function Product23() {
 }
 
 export function Product24() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('GE005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -353,14 +471,14 @@ export function Product24() {
                         <img className="img-thumbnail" src="assets/img/products/epiphonees335.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">GE005</div>
-                        <h1 className="display-5 fw-bolder">Guitarra Eléctrica Semi-hollow</h1>
-                        <h5>Epiphone ES-335</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$549,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -380,6 +498,19 @@ export function Product24() {
 }
 
 export function Product3() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BA001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -389,14 +520,14 @@ export function Product3() {
                         <img className="img-thumbnail" src="assets/img/products/squireaffinitypj.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BA001</div>
-                        <h1 className="display-5 fw-bolder">Bajo Eléctrico 4 Cuerdas</h1>
-                        <h5>Squire Affinity PJ</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$299,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -416,6 +547,19 @@ export function Product3() {
 }
 
 export function Product31() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BA002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -425,14 +569,14 @@ export function Product31() {
                         <img className="img-thumbnail" src="assets/img/products/fenderplayjazz.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BA002</div>
-                        <h1 className="display-5 fw-bolder">Bajo Eléctrico Jazz Bass</h1>
-                        <h5>Fender Player Jazz</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$699,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -452,6 +596,19 @@ export function Product31() {
 }
 
 export function Product32() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BA003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -461,14 +618,14 @@ export function Product32() {
                         <img className="img-thumbnail" src="assets/img/products/yamahaapx700iii.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BA003</div>
-                        <h1 className="display-5 fw-bolder">Bajo Acústico 4 Cuerdas</h1>
-                        <h5>Yamaha APX700II</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$429,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -488,6 +645,19 @@ export function Product32() {
 }
 
 export function Product4() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BT001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -497,14 +667,14 @@ export function Product4() {
                         <img className="img-thumbnail" src="assets/img/products/pearlroadshadow.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BT001</div>
-                        <h1 className="display-5 fw-bolder">Batería Acústica 5 piezas</h1>
-                        <h5>Pearl Roadshow</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$599,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -524,6 +694,19 @@ export function Product4() {
 }
 
 export function Product41() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BT002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -532,15 +715,15 @@ export function Product41() {
                     <div className="col-md-6">
                         <img className="img-thumbnail" src="assets/img/products/rolandtd02kv.jpg" alt="..." width="300" height="300"/>
                     </div>
-                    <div className="col-md-6">
-                        <div className="small md-1">BT002</div>
-                        <h1 className="display-5 fw-bolder">Batería Electrónica 8 pads</h1>
-                        <h5>Roland TD-02KV</h5>
+                     <div className="col-md-6">
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$799,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -560,6 +743,19 @@ export function Product41() {
 }
 
 export function Product42() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BT003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -569,14 +765,14 @@ export function Product42() {
                         <img className="img-thumbnail" src="assets/img/products/pearlste1450.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BT003</div>
-                        <h1 className="display-5 fw-bolder">Caja Snare 14"</h1>
-                        <h5>Pearl STE 1450</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$89,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -596,6 +792,19 @@ export function Product42() {
 }
 
 export function Product43() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BT004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -605,14 +814,14 @@ export function Product43() {
                         <img className="img-thumbnail" src="assets/img/products/zildjian14hihat.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BT004</div>
-                        <h1 className="display-5 fw-bolder">Platillo Hi-Hat 14"</h1>
-                        <h5>Zildjian A Series</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$149,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -632,6 +841,19 @@ export function Product43() {
 }
 
 export function Product44() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('BT005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -641,14 +863,14 @@ export function Product44() {
                         <img className="img-thumbnail" src="assets/img/products/zildjian16crash.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">BT005</div>
-                        <h1 className="display-5 fw-bolder">Platillo Crash 16"</h1>
-                        <h5>Zildjian A Series</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$129,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -668,6 +890,19 @@ export function Product44() {
 }
 
 export function Product5() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('TC001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -677,14 +912,14 @@ export function Product5() {
                         <img className="img-thumbnail" src="assets/img/products/yamahapsre373.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">TC001</div>
-                        <h1 className="display-5 fw-bolder">Teclado Digital 61 teclas</h1>
-                        <h5>Yamaha PSR-E373</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$249,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -704,6 +939,19 @@ export function Product5() {
 }
 
 export function Product51() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('TC002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -713,14 +961,14 @@ export function Product51() {
                         <img className="img-thumbnail" src="assets/img/products/yamahap45.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">TC001</div>
-                        <h1 className="display-5 fw-bolder">Piano Digital 88 teclas</h1>
-                        <h5>Yamaha P-45</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$499,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -739,6 +987,19 @@ export function Product51() {
   )
 }
 export function Product52() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('TC003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -748,14 +1009,14 @@ export function Product52() {
                         <img className="img-thumbnail" src="assets/img/products/arturiaminilabmkii.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">TC003</div>
-                        <h1 className="display-5 fw-bolder">Sintetizador 49 teclas</h1>
-                        <h5>Arturia MiniLab MKII</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$129,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -775,6 +1036,19 @@ export function Product52() {
 }
 
 export function Product53() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('TC004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -784,14 +1058,14 @@ export function Product53() {
                         <img className="img-thumbnail" src="assets/img/products/maudiohammer88.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">TC004</div>
-                        <h1 className="display-5 fw-bolder">Teclado MIDI 88 teclas</h1>
-                        <h5>M-Audio Hammer 88</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$399,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -811,6 +1085,19 @@ export function Product53() {
 }
 
 export function Product6() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AM001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -820,14 +1107,14 @@ export function Product6() {
                         <img className="img-thumbnail" src="assets/img/products/fenderfrontman15g.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AM001</div>
-                        <h1 className="display-5 fw-bolder">Amplificador Guitarra 15W</h1>
-                        <h5>Fender Frontman 15G</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$99,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -847,6 +1134,20 @@ export function Product6() {
 }
 
 export function Product61() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AM002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -856,14 +1157,14 @@ export function Product61() {
                         <img className="img-thumbnail" src="assets/img/products/marshallmg40gfx.jpeg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AM002</div>
-                        <h1 className="display-5 fw-bolder">Amplificador Guitarra 40W</h1>
-                        <h5>Marshall MG40GFX</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$299,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -883,6 +1184,20 @@ export function Product61() {
 }
 
 export function Product62() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AM003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -892,14 +1207,14 @@ export function Product62() {
                         <img className="img-thumbnail" src="assets/img/products/hartkehd100.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AM003</div>
-                        <h1 className="display-5 fw-bolder">Amplificador Bajo 100W</h1>
-                        <h5>Hartke HD100</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$449,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -919,6 +1234,20 @@ export function Product62() {
 }
 
 export function Product63() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AM004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
+
   return (
     <div>
         <section className="py-5">
@@ -928,17 +1257,17 @@ export function Product63() {
                         <img className="img-thumbnail" src="assets/img/products/fishmanloudboxmini.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AM004</div>
-                        <h1 className="display-5 fw-bolder">Amplificador Acústico 40W</h1>
-                        <h5>Fishman Loudbox Mini</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 3</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$499,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  min= '1' style={{maxWidth: '64px'}}/>
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
                             <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
                                 Añadir al carrito
                             </button>
@@ -955,6 +1284,19 @@ export function Product63() {
 }
 
 export function Product7() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('MI001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -964,14 +1306,14 @@ export function Product7() {
                         <img className="img-thumbnail" src="assets/img/products/shuresm58.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">MI001</div>
-                        <h1 className="display-5 fw-bolder">Micrófono Dinámico Cardioide</h1>
-                        <h5>Shure SM58</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 8</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$149,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -991,6 +1333,19 @@ export function Product7() {
 }
 
 export function Product71() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('MI002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1000,14 +1355,14 @@ export function Product71() {
                         <img className="img-thumbnail" src="assets/img/products/shuresm57.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">MI002</div>
-                        <h1 className="display-5 fw-bolder">Micrófono Dinámico Instrumento</h1>
-                        <h5>Shure SM57</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 6</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$139,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1027,6 +1382,19 @@ export function Product71() {
 }
 
 export function Product72() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('MI003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1036,14 +1404,14 @@ export function Product72() {
                         <img className="img-thumbnail" src="assets/img/products/audiotechat2020.png" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">MI003</div>
-                        <h1 className="display-5 fw-bolder">Micrófono Condensador</h1>
-                        <h5>Audio-Technica AT2020</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$199,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1063,6 +1431,19 @@ export function Product72() {
 }
 
 export function Product73() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('MI004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1072,14 +1453,14 @@ export function Product73() {
                         <img className="img-thumbnail" src="assets/img/products/blueyeti.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">MI004</div>
-                        <h1 className="display-5 fw-bolder">Micrófono USB de Condensador</h1>
-                        <h5>Blue Yeti</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 5</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$299,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1099,6 +1480,19 @@ export function Product73() {
 }
 
 export function Product8() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1108,14 +1502,14 @@ export function Product8() {
                         <img className="img-thumbnail" src="assets/img/products/bossds1.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE001</div>
-                        <h1 className="display-5 fw-bolder">Pedal Distorsión</h1>
-                        <h5>Boss DS-1</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 7</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$79,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1135,6 +1529,19 @@ export function Product8() {
 }
 
 export function Product81() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1144,14 +1551,14 @@ export function Product81() {
                         <img className="img-thumbnail" src="assets/img/products/bossrv6.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE002</div>
-                        <h1 className="display-5 fw-bolder">Pedal Reverb</h1>
-                        <h5>Boss RV-6</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$179,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1171,6 +1578,19 @@ export function Product81() {
 }
 
 export function Product82() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1180,14 +1600,14 @@ export function Product82() {
                         <img className="img-thumbnail" src="assets/img/products/bossme80.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE003</div>
-                        <h1 className="display-5 fw-bolder">Pedal Multi-efectos</h1>
-                        <h5>Boss ME-80</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$349,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1207,6 +1627,19 @@ export function Product82() {
 }
 
 export function Product83() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1216,14 +1649,14 @@ export function Product83() {
                         <img className="img-thumbnail" src="assets/img/products/BOSSTU3.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE004</div>
-                        <h1 className="display-5 fw-bolder">Pedal Tuner Cromático</h1>
-                        <h5>Boss TU-3</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 8</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$89,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1243,6 +1676,19 @@ export function Product83() {
 }
 
 export function Product84() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1252,14 +1698,14 @@ export function Product84() {
                         <img className="img-thumbnail" src="assets/img/products/mxrcarboncopy.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE005</div>
-                        <h1 className="display-5 fw-bolder">Pedal Delay</h1>
-                        <h5>MXR Carbon Copy</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$179,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1279,6 +1725,19 @@ export function Product84() {
 }
 
 export function Product85() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('PE006').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1288,14 +1747,14 @@ export function Product85() {
                         <img className="img-thumbnail" src="assets/img/products/ibanezts9.jpeg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">PE006</div>
-                        <h1 className="display-5 fw-bolder">Pedal Overdrive</h1>
-                        <h5>Ibanez TS9</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 6</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$99,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1315,6 +1774,19 @@ export function Product85() {
 }
 
 export function Product9() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1324,14 +1796,14 @@ export function Product9() {
                         <img className="img-thumbnail" src="assets/img/products/superslinky.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC001</div>
-                        <h1 className="display-5 fw-bolder">Cuerdas Guitarra Eléctrica 09-42</h1>
-                        <h5>Ernie Ball Super Slinky</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 25</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$8,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1351,6 +1823,19 @@ export function Product9() {
 }
 
 export function Product91() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1360,14 +1845,14 @@ export function Product91() {
                         <img className="img-thumbnail" src="assets/img/products/earthwood.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC002</div>
-                        <h1 className="display-5 fw-bolder">Cuerdas Guitarra Acústica 12-53</h1>
-                        <h5>Ernie Ball Earthwood</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 12</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$10,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1387,6 +1872,19 @@ export function Product91() {
 }
 
 export function Product92() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1396,14 +1894,14 @@ export function Product92() {
                         <img className="img-thumbnail" src="assets/img/products/regularslinky.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC003</div>
-                        <h1 className="display-5 fw-bolder">Cuerdas Bajo 45-105</h1>
-                        <h5>Ernie Ball Regular Slinky</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 12</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$14,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
@@ -1423,6 +1921,19 @@ export function Product92() {
 }
 
 export function Product93() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1432,14 +1943,14 @@ export function Product93() {
                         <img className="img-thumbnail" src="assets/img/products/fender351.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC004</div>
-                        <h1 className="display-5 fw-bolder">Púas de Guitarra x10 (0.73mm)</h1>
-                        <h5>Fender 351</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 50</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$3,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1459,6 +1970,19 @@ export function Product93() {
 }
 
 export function Product94() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1468,14 +1992,14 @@ export function Product94() {
                         <img className="img-thumbnail" src="assets/img/products/dunloptrigger.png" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC005</div>
-                        <h1 className="display-5 fw-bolder">Capotraste Guitarra</h1>
-                        <h5>Dunlop Trigger</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 15</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$12,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1495,6 +2019,19 @@ export function Product94() {
 }
 
 export function Product95() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC006').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1504,14 +2041,14 @@ export function Product95() {
                         <img className="img-thumbnail" src="assets/img/products/snarksn5.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC006</div>
-                        <h1 className="display-5 fw-bolder">Afinador de Clip</h1>
-                        <h5>Snark SN-5</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 20</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$8,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1531,6 +2068,19 @@ export function Product95() {
 }
 
 export function Product96() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC007').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1540,14 +2090,14 @@ export function Product96() {
                         <img className="img-thumbnail" src="assets/img/products/monsters100-3.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC007</div>
-                        <h1 className="display-5 fw-bolder">Cable Instrumento 3m</h1>
-                        <h5>Monster S100-I-3</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 15</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$12,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1567,6 +2117,19 @@ export function Product96() {
 }
 
 export function Product97() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC008').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1576,14 +2139,14 @@ export function Product97() {
                         <img className="img-thumbnail" src="assets/img/products/monsters100-3.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC008</div>
-                        <h1 className="display-5 fw-bolder">Cable Instrumento 6m</h1>
-                        <h5>Monster S100-I-6</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 10</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$17,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1603,6 +2166,19 @@ export function Product97() {
 }
 
 export function Product98() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC009').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1612,14 +2188,14 @@ export function Product98() {
                         <img className="img-thumbnail" src="assets/img/products/herculesgs302b.webp" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC009</div>
-                        <h1 className="display-5 fw-bolder">Soporte Guitarra de Piso</h1>
-                        <h5>Hercules GS302B</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 12</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$22,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1639,6 +2215,19 @@ export function Product98() {
 }
 
 export function Product99() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('AC010').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1648,14 +2237,14 @@ export function Product99() {
                         <img className="img-thumbnail" src="assets/img/products/herculeswah202.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">AC010</div>
-                        <h1 className="display-5 fw-bolder">Soporte Guitarra de Pared</h1>
-                        <h5>Hercules WAH-202</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 10</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$18,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
@@ -1675,6 +2264,19 @@ export function Product99() {
 }
 
 export function Product10() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('ES001').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1684,14 +2286,14 @@ export function Product10() {
                         <img className="img-thumbnail" src="assets/img/products/focusritescarlet.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">ES001</div>
-                        <h1 className="display-5 fw-bolder">Interfaz de Audio 2x2 USB</h1>
-                        <h5>Focusrite Scarlett Solo</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$149,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1711,6 +2313,19 @@ export function Product10() {
 }
 
 export function Product101() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('ES002').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1720,14 +2335,14 @@ export function Product101() {
                         <img className="img-thumbnail" src="assets/img/products/audiotechathmx20x.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">ES002</div>
-                        <h1 className="display-5 fw-bolder">Auriculares de Estudio</h1>
-                        <h5>Audio-Technica ATH-M20x</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 6</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$79,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1747,6 +2362,19 @@ export function Product101() {
 }
 
 export function Product102() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('ES003').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1756,14 +2384,14 @@ export function Product102() {
                         <img className="img-thumbnail" src="assets/img/products/audiotemx50x.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">ES003</div>
-                        <h1 className="display-5 fw-bolder">Auriculares de Estudio Pro</h1>
-                        <h5>Audio-Technica ATH-M50x</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 4</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$219,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1783,6 +2411,19 @@ export function Product102() {
 }
 
 export function Product103() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('ES004').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1792,14 +2433,14 @@ export function Product103() {
                         <img className="img-thumbnail" src="assets/img/products/yamahahs5.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">ES004</div>
-                        <h1 className="display-5 fw-bolder">Monitor de Estudio 5"</h1>
-                        <h5>Yamaha HS5</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 2</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$349,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
@@ -1819,6 +2460,19 @@ export function Product103() {
 }
 
 export function Product104() {
+
+    const [products, setProducts]=useState();
+    
+    useEffect(() => {
+        ProductService.getProductsById('ES005').then(response => {
+            console.log('Respuesta API:', response.data);
+            const data = Array.isArray(response.data) ? response.data[0] : response.data;
+            setProducts(data);
+        }).catch(error => {
+            console.log('Error al obtener productos:', error);
+        });
+    }, []);
+
   return (
     <div>
         <section className="py-5">
@@ -1828,14 +2482,14 @@ export function Product104() {
                         <img className="img-thumbnail" src="assets/img/products/sennheisermzp40.jpg" alt="..." width="300" height="300"/>
                     </div>
                     <div className="col-md-6">
-                        <div className="small md-1">ES005</div>
-                        <h1 className="display-5 fw-bolder">Pop Filter para Micrófono</h1>
-                        <h5>Sennheiser MZP 40</h5>
+                        <div className="small md-1">{products?.id}</div>
+                        <h1 className="display-5 fw-bolder">{products?.nombre}</h1>
+                        <h5>{products?.marca} {products?.modelo}</h5>
                         <div className="fs-6">
-                            <span>Stock: 8</span>
+                            <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>$14,990</span>   
+                            <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
