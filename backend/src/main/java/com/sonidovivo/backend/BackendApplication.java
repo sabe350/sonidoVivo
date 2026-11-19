@@ -24,7 +24,7 @@ public class BackendApplication {
 				user.setNombre("admin");
 				user.setApellido("admin");
 				user.setTelefono(123456789);
-				user.setPassword("1234");
+				user.setPassword(encoder.encode("1234"));
 				user.setRole(Role.ROLE_ADMIN);
 				repo.save(user);
 			}

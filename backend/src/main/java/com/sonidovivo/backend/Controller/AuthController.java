@@ -1,6 +1,8 @@
 package com.sonidovivo.backend.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,16 +31,15 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping(value="/login")
-    public AuthResponse login(@RequestBody LoginRequest request){
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         User user = userService.findByCorreo(request.getCorreo());
 
-        if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
-            throw new RuntimeException("Credenciales Invalidas");
+        if (user == null || !passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
 
         String token = jwtService.generatedToken(user.getCorreo());
-
-        return new AuthResponse(token);
+        return ResponseEntity.ok(new AuthResponse(token));
     }
 }

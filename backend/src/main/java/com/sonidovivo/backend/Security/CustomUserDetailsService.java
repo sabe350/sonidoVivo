@@ -11,7 +11,7 @@ import java.util.List;
 import com.sonidovivo.backend.Repository.UserRepository;
 
 @Service
-public class CustomUserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService{
 
     @Autowired
     private UserRepository repository;
@@ -20,6 +20,6 @@ public class CustomUserDetailsService {
     public UserDetails loadUserByUsername(String correo){
         User user = repository.findByCorreo(correo).orElseThrow();
 
-        return new org.springframework.security.core.userdetails.User(user.getCorreo(), user.getPassword(), List.of(new SimpleGrantedAuthority(user.getRole().correo())));
+        return new org.springframework.security.core.userdetails.User(user.getCorreo(), user.getPassword(), List.of(new SimpleGrantedAuthority(user.getRole().name())));
     }
 }

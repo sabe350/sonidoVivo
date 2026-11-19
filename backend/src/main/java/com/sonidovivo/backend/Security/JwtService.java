@@ -16,13 +16,15 @@ public class JwtService {
                 .setSubject(correo)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+86400000))
+                .signWith(SignatureAlgorithm.HS256, SECRET)
                 .compact();
     }
 
     public String exactCorreo(String token){
         return Jwts.parser()
                 .setSigningKey(SECRET)
-                .parseSignedClaims(token)
+                .build()
+                .parseClaimsJws(token)
                 .getPayload()
                 .getSubject();
     }

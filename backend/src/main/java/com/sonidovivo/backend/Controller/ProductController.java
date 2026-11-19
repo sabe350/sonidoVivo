@@ -2,6 +2,7 @@ package com.sonidovivo.backend.Controller;
 
 import com.sonidovivo.backend.Model.Product;
 import com.sonidovivo.backend.Service.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@SecurityRequirement(name="Ingrese token generado en Inicio de sesion")
 @Tag(name = "Sistema de gestion de inventario")
 public class ProductController {
     @Autowired
