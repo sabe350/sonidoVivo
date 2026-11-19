@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
+import UsuarioService from '../services/UsuarioService';
 
 function Signup() {
 
@@ -11,55 +13,47 @@ function Signup() {
     const [userphone, setPhone] = useState("");
     const [mensaje, setMessage] = useState("");
     const [isChecked, setIsChecked] = useState(false);
+    const navigate = useNavigate();
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setIsChecked(event.target.isChecked);
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-        if (username && userlsname && userpass && userpass2 && usermail && userphone != null && isChecked != false){
-            window.location.href = "index.html";
-        }else{
-            setMessage("Debe rellenar todos los campos")
-        }
+  if (!username || !userlsname || !userpass || !userpass2 || !usermail || !userphone) {
+    setMessage("Debe rellenar todos los campos");
+    return;
+  }
+  if (!usermail.includes("@")) {
+    setMessage("Correo invalido");
+    return;
+  }
+  if (userpass !== userpass2) {
+    setMessage("Contraseñas deben coincidir");
+    return;
+  }
+  if (!/^9\d{8}$/.test(userphone)) {
+    setMessage("Debe ingresar un numero valido");
+    return;
+  }
+  if (!isChecked) {
+    setMessage("Debe aceptar los terminos y condiciones");
+    return;
+  }
 
-        if (!usermail.includes("@")){
-            setMessage("Correo invalido")
-        }
-
-        if (!username){
-            setMessage("Debe rellenar todos los campos")
-        }
-
-        if (!userlsname){
-            setMessage("Debe rellenar todos los campos")
-        }
-
-        if (!userpass){
-            setMessage("Debe rellenar todos los campos")
-        } else if (userpass != userpass2){
-            setMessage("Contraseñas deben coincidir")
-        }
-
-        if (!userpass2){
-            setMessage("Debe rellenar todos los campos")
-        } else if (userpass != userpass2){
-            setMessage("Contraseñas deben coincidir")
-        } 
-
-        if (!userphone.startsWith(9)){
-            setMessage("Debe ingresar un numero valido")
-        } else if (!userphone.length == 9){
-           setMessage("Debe ingresar un numero valido") 
-        } 
-
-        if (isChecked == false){
-            setMessage("Debe aceptar los terminos y condiciones") 
-        } 
-
-        
-
-    }    
+  try {
+    await UsuarioService.createUser({
+      nombre: username,
+      apellido: userlsname,
+      password: userpass,
+      correo: usermail,
+      telefono: Number(userphone),
+    });
+    window.location.href = "login.html";
+  } catch (error) {
+    console.error(error);
+    setMessage("No se pudo crear el usuario");
+  }
+};   
 
   return (
     <div>

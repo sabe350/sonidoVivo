@@ -1,38 +1,44 @@
 import React from 'react'
 import { useState } from 'react';
+import AuthService from '../services/AuthService';
 
 
 function Login() {
-
-    const TEMP_MAIL = "admin@admin.com";
-    const TEMP_PASSWORD = "1234";
 
     const [usermail, setMail] = useState("");
     const [userpass, setPassword] = useState("");
     const [mensaje, setMessage] = useState("");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!usermail){
+        if (!usermail || !userpass){
             setMessage("Debe rellenar todos los campos")
-        }else if (!usermail.includes("@")){
-            setMessage("Correo invalido")
-        }else if (usermail == TEMP_MAIL && userpass == TEMP_PASSWORD) {
-            window.location.href = "index.html";
-        } else {
-            setMessage("Credenciales invalidas")
+            return
         }
 
-        if (!userpass){
-            setMessage("Debe rellenar todos los campos")
-        }else if (usermail == TEMP_MAIL && userpass == TEMP_PASSWORD) {
-            window.location.href = "index.html";
-        } else {
-            setMessage("Credenciales invalidas")
+        if (!usermail.includes("@")){
+            setMessage("Correo invalido")
+            return
         }
-          
+         
+        try {
+            const response = await AuthService.login({
+                correo: usermail,
+                password: userpass
+        });
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "index.html";
+        }catch (error) {
+        console.error(error);
+        if (error.response?.status === 401){
+            setMessage("Credenciales invalidas")
+        }else{
+        setMessage("No se pudo iniciar sesion");
+        }
     }
+
+};
 
   return (
     <div>
