@@ -1,6 +1,13 @@
 import React from 'react'
+import { useCart } from '../context/CartContext'
+import { Button } from 'react-bootstrap'
+import { AuthContext, useAuth } from '../context/AuthContext'
 
 function Header() {
+    const {isAuthenticated, logout} = useAuth()
+    const { openCart, cartQuantity } = useCart() 
+
+
   return (
         <header>
             <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom">
@@ -30,17 +37,35 @@ function Header() {
                             <button className="btn btn-secondary btn-outline-light bg-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false" type="submit">
                                 <i className="bi bi-person-circle"></i>
                                 </button>
+                             
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="login.html">Iniciar Sesion</a></li>
-                                <li><a className="dropdown-item" href="signup.html">Registrarse</a></li>                                
+                                {!isAuthenticated ? (
+                                    <>
+                                    <li><a className="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                                    <li><a className="dropdown-item" href="signup.html">Registrarse</a></li> 
+                                    </>                               
+                                ) : ( 
+                                    <li>
+                                        <Button className="dropdown-item" onClick={logout}>Cerrar Sesion</Button>
+                                    </li>
+                                )}
                             </ul>
+
                         </div>
                         <form className="d-flex">
-                            <a className="btn btn-outline-light mt-auto bg-primary" type="button" aria-expanded="false" type="submit" href="cart.html">
+                            {!isAuthenticated ? (
+                                <Button className="btn btn-outline-light mt-auto bg-primary" type="button" aria-expanded="false" href="login.html">
+                                    <i className="bi-cart-fill me-1"></i>
+                                        Carrito
+                                    <span className="badge ms-1 rounded-pill">{cartQuantity}</span>
+                                </Button>
+                            ) : (
+                            <Button className="btn btn-outline-light mt-auto bg-primary" type="button" aria-expanded="false" href="#" onClick={openCart}>
                                 <i className="bi-cart-fill me-1"></i>
-                                Carrito
-                                <span className="badge ms-1 rounded-pill">0</span>
-                            </a>
+                                    Carrito
+                                <span className="badge ms-1 rounded-pill">{cartQuantity}</span>
+                            </Button>
+                            )}
                         </form>
                     </div>
                 </div>

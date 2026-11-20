@@ -11,10 +11,14 @@ import { Category1, Category10, Category2, Category3, Category4, Category5, Cate
 import { Product1, Product10, Product101, Product102, Product103, Product104, Product12, Product13, Product14, Product15, Product2, Product21, Product22, Product23, Product24, Product3, Product31, Product32, Product4, Product41, Product42, Product43, Product44, Product5, Product51, Product52, Product53, Product6, Product61, Product62, Product63, Product7, Product71, Product72, Product73, Product8, Product81, Product82, Product83, Product84, Product85, Product9, Product91, Product92, Product93, Product94, Product95, Product96, Product97, Product98, Product99 } from './components/Product'
 import ProductList from './components/ProductList'
 import ProductForm from './components/ProductForm'
+import { CartProvider } from './context/CartContext'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
   return (
     <>
+    <AuthProvider>
+    <CartProvider>
     <Header />
       <BrowserRouter>
         <Routes>
@@ -91,6 +95,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     <Footer />
+  </CartProvider>
+  </AuthProvider>
     </>
   )
 }

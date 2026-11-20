@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from 'react'
 import ProductService from '../services/ProductService'
+import { Button } from 'react-bootstrap';
 
 function Prod({id, children}){
     const [products, setProducts] = useState(null);
@@ -34,7 +35,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +57,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,7 +79,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +101,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,7 +123,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +145,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -142,7 +167,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +189,11 @@ function Home() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
+                                </div>
                             </div>
                         </div>
                     </div>

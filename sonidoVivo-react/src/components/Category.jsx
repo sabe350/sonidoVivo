@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react'
 import ProductService from '../services/ProductService'
 import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function Prod({id, children}){
     const [products, setProducts] = useState(null);
@@ -39,7 +40,10 @@ export function Category1() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                         
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -57,7 +61,10 @@ export function Category1() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +82,9 @@ export function Category1() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +102,9 @@ export function Category1() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">{products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +122,9 @@ export function Category1() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -190,7 +203,9 @@ export function Category2() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -208,7 +223,9 @@ export function Category2() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -226,7 +243,9 @@ export function Category2() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -244,7 +263,10 @@ export function Category2() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                              
+                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -262,7 +284,9 @@ export function Category2() {
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -340,7 +364,9 @@ export function Category3(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -358,7 +384,9 @@ export function Category3(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -376,7 +404,9 @@ export function Category3(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -485,7 +515,9 @@ export function Category4(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -503,7 +535,9 @@ export function Category4(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -521,7 +555,9 @@ export function Category4(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -539,7 +575,9 @@ export function Category4(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -557,7 +595,9 @@ export function Category4(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -636,7 +676,9 @@ export function Category5(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -654,7 +696,9 @@ export function Category5(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -672,7 +716,9 @@ export function Category5(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -690,7 +736,9 @@ export function Category5(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -784,7 +832,9 @@ export function Category6(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -802,7 +852,9 @@ export function Category6(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -820,7 +872,9 @@ export function Category6(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -838,7 +892,9 @@ export function Category6(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -932,7 +988,9 @@ export function Category7(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -950,7 +1008,9 @@ export function Category7(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -968,7 +1028,9 @@ export function Category7(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -986,7 +1048,9 @@ export function Category7(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1080,7 +1144,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1098,7 +1164,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1116,7 +1184,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1134,7 +1204,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1152,7 +1224,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1170,7 +1244,9 @@ export function Category8(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1234,7 +1310,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1252,7 +1330,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1270,7 +1350,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1288,7 +1370,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1306,7 +1390,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1324,7 +1410,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1342,7 +1430,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1360,7 +1450,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1378,7 +1470,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1396,7 +1490,9 @@ export function Category9(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1430,7 +1526,9 @@ export function Category10(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1448,7 +1546,9 @@ export function Category10(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1466,7 +1566,9 @@ export function Category10(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1484,7 +1586,10 @@ export function Category10(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    
+                                    {products?.stock > 0 ? (
+                                        <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>
@@ -1502,7 +1607,9 @@ export function Category10(){
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div className="text-center"><a className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</a></div>
+                                <div className="text-center">                                    {products?.stock > 0 ? (
+                                            <Button className="btn btn-outline-light mt-auto bg-primary" href="#">COMPRAR</Button>
+                                    ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}</div>
                             </div>
                         </div>
                     </div>

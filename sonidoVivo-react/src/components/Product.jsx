@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Related from './Related'
 import ProductService from '../services/ProductService'
+import { useCart } from '../context/CartContext';
 
 
 export function Product1() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('GA001').then(response => {
@@ -15,7 +18,14 @@ export function Product1() {
         }).catch(error => {
             console.log('Error al obtener productos:', error);
         });
-    }, []);
+    }, [])
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }
 
 
   return (
@@ -39,9 +49,11 @@ export function Product1() {
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}} />
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            {products && products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes.</p>
@@ -56,6 +68,8 @@ export function Product1() {
 };
 export function Product12() {
         const [products, setProducts]=useState();
+        const [cantidad, setCantidad] = useState(1)
+        const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('GA002').then(response => {
@@ -66,6 +80,14 @@ export function Product12() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }
+
 
   return (
     <div>
@@ -86,10 +108,12 @@ export function Product12() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Tapa de abeto macizo, brazo de caoba. Sonido cálido y proyectado.</p>
@@ -105,6 +129,8 @@ export function Product12() {
 export function Product13() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('GA003').then(response => {
@@ -115,6 +141,13 @@ export function Product13() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }
 
   return (
     <div>
@@ -135,10 +168,12 @@ export function Product13() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Nailon, tapa de abeto. Ideal para estudio y flamenco.</p>
@@ -154,6 +189,8 @@ export function Product13() {
 export function Product14() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('GA004').then(response => {
@@ -164,6 +201,13 @@ export function Product14() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -184,10 +228,12 @@ export function Product14() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Pickup integrado, afinador incorporado.</p>
@@ -203,7 +249,9 @@ export function Product14() {
 export function Product15() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('GA005').then(response => {
             console.log('Respuesta API:', response.data);
@@ -213,6 +261,13 @@ export function Product15() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -233,10 +288,12 @@ export function Product15() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Tamaño reducido para niños de 6 a 10 años.</p>
@@ -252,7 +309,9 @@ export function Product15() {
 export function Product2() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('GE001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -262,6 +321,13 @@ export function Product2() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -282,10 +348,12 @@ export function Product2() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerpo de álamo, mástil de arce, pastillas SSS.</p>
@@ -301,7 +369,9 @@ export function Product2() {
 export function Product21() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('GE002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -311,6 +381,13 @@ export function Product21() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -331,10 +408,12 @@ export function Product21() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerpo caoba, tapa arce, pastillas humbucker.</p>
@@ -350,7 +429,9 @@ export function Product21() {
 export function Product22() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('GE003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -360,6 +441,13 @@ export function Product22() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -381,10 +469,12 @@ export function Product22() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerpo caoba, mástil caoba, 2 humbuckers.</p>
@@ -400,6 +490,8 @@ export function Product22() {
 export function Product23() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('GE004').then(response => {
@@ -410,6 +502,13 @@ export function Product23() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -431,10 +530,12 @@ export function Product23() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerpo álamo, clavijero vintage, 2 pastillas single.</p>
@@ -450,7 +551,9 @@ export function Product23() {
 export function Product24() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('GE005').then(response => {
             console.log('Respuesta API:', response.data);
@@ -460,6 +563,13 @@ export function Product24() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -481,10 +591,12 @@ export function Product24() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Semi-hueca, 2 humbuckers, ideal para jazz y blues.</p>
@@ -500,7 +612,9 @@ export function Product24() {
 export function Product3() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BA001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -510,6 +624,13 @@ export function Product3() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -530,10 +651,12 @@ export function Product3() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Pickup PJ, cuerpo álamo, mástil arce.</p>
@@ -549,7 +672,9 @@ export function Product3() {
 export function Product31() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BA002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -559,6 +684,13 @@ export function Product31() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -579,10 +711,12 @@ export function Product31() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Alder body, 2 Alnico V Jazz single-coil.</p>
@@ -598,7 +732,9 @@ export function Product31() {
 export function Product32() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BA003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -608,6 +744,13 @@ export function Product32() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -628,10 +771,12 @@ export function Product32() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Electroacústico, afinador incorporado.</p>
@@ -647,7 +792,9 @@ export function Product32() {
 export function Product4() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BT001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -657,6 +804,13 @@ export function Product4() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -677,10 +831,12 @@ export function Product4() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Incluye stands, platillos y pedal de bombo.</p>
@@ -696,7 +852,9 @@ export function Product4() {
 export function Product41() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BT002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -706,6 +864,13 @@ export function Product41() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -726,10 +891,12 @@ export function Product41() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Módulo TD-02, 8 pads de goma, pedal hi-hat.</p>
@@ -745,7 +912,9 @@ export function Product41() {
 export function Product42() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BT003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -755,6 +924,13 @@ export function Product42() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -775,10 +951,12 @@ export function Product42() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Acero, 14x5", 10 tensores.</p>
@@ -794,7 +972,9 @@ export function Product42() {
 export function Product43() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BT004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -804,6 +984,13 @@ export function Product43() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -824,10 +1011,12 @@ export function Product43() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Latón B20, sonido brillante y claro.</p>
@@ -843,7 +1032,9 @@ export function Product43() {
 export function Product44() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('BT005').then(response => {
             console.log('Respuesta API:', response.data);
@@ -853,6 +1044,13 @@ export function Product44() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -873,10 +1071,12 @@ export function Product44() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Latón B20, ataque rápido.</p>
@@ -892,7 +1092,9 @@ export function Product44() {
 export function Product5() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('TC001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -902,6 +1104,13 @@ export function Product5() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -922,10 +1131,12 @@ export function Product5() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">61 teclas sensibles al tacto, 622 voces.</p>
@@ -941,7 +1152,9 @@ export function Product5() {
 export function Product51() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('TC002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -951,6 +1164,13 @@ export function Product51() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -971,10 +1191,12 @@ export function Product51() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">88 teclas pesadas, 10 voces, pedal sustain incluido.</p>
@@ -989,7 +1211,9 @@ export function Product51() {
 export function Product52() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('TC003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -999,6 +1223,13 @@ export function Product52() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1019,10 +1250,12 @@ export function Product52() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">MIDI controller, 49 mini teclas.</p>
@@ -1038,7 +1271,9 @@ export function Product52() {
 export function Product53() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('TC004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1048,6 +1283,13 @@ export function Product53() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1068,10 +1310,12 @@ export function Product53() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">88 teclas martillo, sin sonidos propios.</p>
@@ -1087,7 +1331,9 @@ export function Product53() {
 export function Product6() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AM001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1097,6 +1343,13 @@ export function Product6() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1117,10 +1370,12 @@ export function Product6() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">15W, distorsión incorporada, entrada auxiliar.</p>
@@ -1136,7 +1391,9 @@ export function Product6() {
 export function Product61() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AM002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1146,6 +1403,13 @@ export function Product61() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -1167,10 +1431,12 @@ export function Product61() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">40W, 4 canales, efectos digitales integrados.</p>
@@ -1186,7 +1452,9 @@ export function Product61() {
 export function Product62() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AM003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1196,6 +1464,13 @@ export function Product62() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -1217,10 +1492,12 @@ export function Product62() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">100W, tweeter integrado, ecualizador de 4 bandas.</p>
@@ -1236,7 +1513,9 @@ export function Product62() {
 export function Product63() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AM004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1246,6 +1525,13 @@ export function Product63() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
 
   return (
@@ -1267,10 +1553,12 @@ export function Product63() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">60W, 2 canales, reverb y chorus incorporados.</p>
@@ -1286,7 +1574,9 @@ export function Product63() {
 export function Product7() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('MI001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1296,6 +1586,13 @@ export function Product7() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1316,10 +1613,12 @@ export function Product7() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Estándar industria para voz en vivo.</p>
@@ -1335,7 +1634,9 @@ export function Product7() {
 export function Product71() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('MI002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1345,6 +1646,13 @@ export function Product71() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1365,10 +1673,12 @@ export function Product71() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Ideal para captura de instrumentos y amplificadores.</p>
@@ -1384,7 +1694,9 @@ export function Product71() {
 export function Product72() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('MI003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1394,6 +1706,13 @@ export function Product72() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1414,10 +1733,12 @@ export function Product72() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cardioide, XLR, ideal para grabación en estudio.</p>
@@ -1433,7 +1754,9 @@ export function Product72() {
 export function Product73() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('MI004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1443,6 +1766,13 @@ export function Product73() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1463,10 +1793,12 @@ export function Product73() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">USB, 4 patrones polares, ideal para streaming y podcast.</p>
@@ -1482,7 +1814,9 @@ export function Product73() {
 export function Product8() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1492,6 +1826,13 @@ export function Product8() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1512,10 +1853,12 @@ export function Product8() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Clásico pedal de distorsión, 3 controles.</p>
@@ -1531,7 +1874,9 @@ export function Product8() {
 export function Product81() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1541,6 +1886,13 @@ export function Product81() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1561,10 +1913,12 @@ export function Product81() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">8 modos de reverb, control de shimmer.</p>
@@ -1580,7 +1934,9 @@ export function Product81() {
 export function Product82() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1590,6 +1946,13 @@ export function Product82() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1610,10 +1973,12 @@ export function Product82() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Diseño tipo pedalboard, 8 efectos simultáneos.</p>
@@ -1629,7 +1994,9 @@ export function Product82() {
 export function Product83() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1639,6 +2006,13 @@ export function Product83() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1659,10 +2033,12 @@ export function Product83() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Afinador cromático, indicador de tono.</p>
@@ -1678,7 +2054,9 @@ export function Product83() {
 export function Product84() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE005').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1688,6 +2066,13 @@ export function Product84() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1708,10 +2093,12 @@ export function Product84() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Delay analógico cálido, tiempo 600ms.</p>
@@ -1727,7 +2114,9 @@ export function Product84() {
 export function Product85() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('PE006').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1737,6 +2126,13 @@ export function Product85() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1757,10 +2153,12 @@ export function Product85() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Tube Screamer clásico, sonido suave y orgánico.</p>
@@ -1776,7 +2174,9 @@ export function Product85() {
 export function Product9() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1786,6 +2186,13 @@ export function Product9() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1806,10 +2213,12 @@ export function Product9() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Juego 6 cuerdas, calibre ligero.</p>
@@ -1825,7 +2234,9 @@ export function Product9() {
 export function Product91() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1835,6 +2246,13 @@ export function Product91() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1855,10 +2273,12 @@ export function Product91() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerdas de níquel enrollado, set 4 cuerdas.</p>
@@ -1874,7 +2294,9 @@ export function Product91() {
 export function Product92() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC003').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1884,6 +2306,13 @@ export function Product92() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1905,9 +2334,11 @@ export function Product92() {
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cuerdas de níquel enrollado, set 4 cuerdas.</p>
@@ -1923,7 +2354,9 @@ export function Product92() {
 export function Product93() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC004').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1933,6 +2366,13 @@ export function Product93() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -1953,10 +2393,12 @@ export function Product93() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Celulosa, grosor medio.</p>
@@ -1972,7 +2414,9 @@ export function Product93() {
 export function Product94() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC005').then(response => {
             console.log('Respuesta API:', response.data);
@@ -1982,6 +2426,13 @@ export function Product94() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2002,10 +2453,12 @@ export function Product94() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Capotraste de resorte, compatible 6 cuerdas.</p>
@@ -2021,7 +2474,9 @@ export function Product94() {
 export function Product95() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC006').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2031,6 +2486,13 @@ export function Product95() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2051,10 +2513,12 @@ export function Product95() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  max={products?.srock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Afinador cromático de clip, pantalla giratoria.</p>
@@ -2070,7 +2534,9 @@ export function Product95() {
 export function Product96() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC007').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2080,6 +2546,13 @@ export function Product96() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2100,10 +2573,12 @@ export function Product96() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cable trenzado, conectores dorados, 3 metros.</p>
@@ -2119,7 +2594,9 @@ export function Product96() {
 export function Product97() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC008').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2129,6 +2606,13 @@ export function Product97() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2149,10 +2633,12 @@ export function Product97() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Cable trenzado, conectores dorados, 6 metros.</p>
@@ -2168,7 +2654,9 @@ export function Product97() {
 export function Product98() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC009').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2178,6 +2666,13 @@ export function Product98() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2198,10 +2693,12 @@ export function Product98() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Soporte plegable con enganche automático.</p>
@@ -2217,7 +2714,9 @@ export function Product98() {
 export function Product99() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('AC010').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2227,6 +2726,13 @@ export function Product99() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2248,9 +2754,11 @@ export function Product99() {
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Montaje a pared, enganche automático.</p>
@@ -2266,7 +2774,9 @@ export function Product99() {
 export function Product10() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('ES001').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2276,6 +2786,13 @@ export function Product10() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2296,10 +2813,12 @@ export function Product10() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">1 entrada XLR+instrumento, 2 salidas, 24bit/192kHz.</p>
@@ -2315,7 +2834,9 @@ export function Product10() {
 export function Product101() {
 
     const [products, setProducts]=useState();
-    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
+
     useEffect(() => {
         ProductService.getProductsById('ES002').then(response => {
             console.log('Respuesta API:', response.data);
@@ -2325,6 +2846,13 @@ export function Product101() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2345,10 +2873,12 @@ export function Product101() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Circumaurales, respuesta 15Hz-20kHz.</p>
@@ -2363,7 +2893,9 @@ export function Product101() {
 
 export function Product102() {
 
-    const [products, setProducts]=useState();
+    const [products, setProducts]=useState();    
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('ES003').then(response => {
@@ -2374,6 +2906,13 @@ export function Product102() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2394,10 +2933,12 @@ export function Product102() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Referencia de industria, sonido neutro y detallado.</p>
@@ -2413,6 +2954,8 @@ export function Product102() {
 export function Product103() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()
     
     useEffect(() => {
         ProductService.getProductsById('ES004').then(response => {
@@ -2423,6 +2966,13 @@ export function Product103() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2443,10 +2993,12 @@ export function Product103() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Altavoz activo, respuesta plana, ideal mezcla.</p>
@@ -2462,6 +3014,8 @@ export function Product103() {
 export function Product104() {
 
     const [products, setProducts]=useState();
+    const [cantidad, setCantidad] = useState(1)
+    const {addToCart, openCart} = useCart()    
     
     useEffect(() => {
         ProductService.getProductsById('ES005').then(response => {
@@ -2472,6 +3026,13 @@ export function Product104() {
             console.log('Error al obtener productos:', error);
         });
     }, []);
+
+    function handleAdd(){
+        if (!products) return
+            addToCart(products.id, cantidad)
+            openCart()
+        
+    }    
 
   return (
     <div>
@@ -2492,10 +3053,12 @@ export function Product104() {
                             <span>${products?.precio}</span>   
                         </div>
                         <div className="d-flex mb-3">
-                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}}/>
-                            <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button">
+                            <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
+                            {products?.stock > 0 ? (
+                                <button className="btn btn-outline-light bg-primary flex-shrink-0" type="button" onClick={handleAdd}>
                                 Añadir al carrito
-                            </button>
+                                </button>
+                            ) : <a className="btn btn-secondary bg-dark" disabled="">No disponible</a>}
                         </div>
                         <p className="mb-1">Descripcion</p>
                         <p className="lead">Doble malla, brazo flexible con clip.</p>
