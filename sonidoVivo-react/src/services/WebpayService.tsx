@@ -1,6 +1,6 @@
 export async function pagoWePay(items: {productId: String; cantidad: number} []) {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:8080/api/webpay", {
+    const res = await fetch("/api/webpay", {
         method: "POST",
         headers: {"Content-Type": "application/json", Authorization: 'Bearer ${token}'},
         body: JSON.stringify({items}),
