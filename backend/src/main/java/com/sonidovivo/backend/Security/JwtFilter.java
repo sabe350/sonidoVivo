@@ -39,8 +39,6 @@ public class JwtFilter extends OncePerRequestFilter {
 
                 SecurityContextHolder.getContext().setAuthentication(auth);
             } catch (Exception e) {
-                // Token inválido/expirado o usuario inexistente: seguimos sin autenticar.
-                // Los endpoints permitAll funcionan; los protegidos devolverán 401/403.
                 SecurityContextHolder.clearContext();
             }
         }
