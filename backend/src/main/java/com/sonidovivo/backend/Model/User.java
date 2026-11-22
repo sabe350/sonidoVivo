@@ -21,6 +21,8 @@ public class User {
     private String apellido;
     private String correo;
     private Integer telefono;
+    private String region;
+    private String ciudad;
     private String direccion;
 
     @Enumerated(EnumType.STRING)

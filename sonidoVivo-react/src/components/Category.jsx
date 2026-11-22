@@ -36,7 +36,7 @@ export function Category1() {
                                 <div className="text-center">
                                     <h4><a href="prodpage1.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -57,7 +57,7 @@ export function Category1() {
                                 <div className="text-center">
                                     <h4><a href="prodpage2.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -78,7 +78,7 @@ export function Category1() {
                                 <div className="text-center">
                                     <h4><a href="prodpage3.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -98,7 +98,7 @@ export function Category1() {
                                 <div className="text-center">
                                     <h4><a href="prodpage4.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -118,7 +118,7 @@ export function Category1() {
                                 <div className="text-center">
                                     <h4><a href="prodpage5.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -199,7 +199,7 @@ export function Category2() {
                                 <div className="text-center">
                                     <h4><a href="prodpage21.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -219,7 +219,7 @@ export function Category2() {
                                 <div className="text-center">
                                     <h4><a href="prodpage22.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -239,7 +239,7 @@ export function Category2() {
                                 <div className="text-center">
                                     <h4><a href="prodpage23.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -259,7 +259,7 @@ export function Category2() {
                                 <div className="text-center">
                                     <h4><a href="prodpage24.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -280,7 +280,7 @@ export function Category2() {
                                 <div className="text-center">
                                     <h4><a href="prodpage25.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -360,7 +360,7 @@ export function Category3(){
                                 <div className="text-center">
                                     <h4><a href="prodpage31.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -380,7 +380,7 @@ export function Category3(){
                                 <div className="text-center">
                                     <h4><a href="prodpage32.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -400,7 +400,7 @@ export function Category3(){
                                 <div className="text-center">
                                     <h4><a href="prodpage33.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -511,7 +511,7 @@ export function Category4(){
                                 <div className="text-center">
                                     <h4><a href="prodpage41.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -531,7 +531,7 @@ export function Category4(){
                                 <div className="text-center">
                                     <h4><a href="prodpage42.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -551,7 +551,7 @@ export function Category4(){
                                 <div className="text-center">
                                     <h4><a href="prodpage43.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -571,7 +571,7 @@ export function Category4(){
                                 <div className="text-center">
                                     <h4><a href="prodpage44.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -591,7 +591,7 @@ export function Category4(){
                                 <div className="text-center">
                                     <h4><a href="prodpage45.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -672,7 +672,7 @@ export function Category5(){
                                 <div className="text-center">
                                     <h4><a href="prodpage51.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -692,7 +692,7 @@ export function Category5(){
                                 <div className="text-center">
                                     <h4><a href="prodpage52.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -712,7 +712,7 @@ export function Category5(){
                                 <div className="text-center">
                                     <h4><a href="prodpage53.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -732,7 +732,7 @@ export function Category5(){
                                 <div className="text-center">
                                     <h4><a href="prodpage54.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -828,7 +828,7 @@ export function Category6(){
                                 <div className="text-center">
                                     <h4><a href="prodpage61.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -848,7 +848,7 @@ export function Category6(){
                                 <div className="text-center">
                                     <h4><a href="prodpage62.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -868,7 +868,7 @@ export function Category6(){
                                 <div className="text-center">
                                     <h4><a href="prodpage63.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -888,7 +888,7 @@ export function Category6(){
                                 <div className="text-center">
                                     <h4><a href="prodpage64.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -984,7 +984,7 @@ export function Category7(){
                                 <div className="text-center">
                                     <h4><a href="prodpage71.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1004,7 +1004,7 @@ export function Category7(){
                                 <div className="text-center">
                                     <h4><a href="prodpage72.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1024,7 +1024,7 @@ export function Category7(){
                                 <div className="text-center">
                                     <h4><a href="prodpage73.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1044,7 +1044,7 @@ export function Category7(){
                                 <div className="text-center">
                                     <h4><a href="prodpage74.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1140,7 +1140,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage81.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1160,7 +1160,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage82.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1180,7 +1180,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage83.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1200,7 +1200,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage84.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio} 
+                                    ${products?.precio.toLocaleString("es-CL")} 
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1220,7 +1220,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage85.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1240,7 +1240,7 @@ export function Category8(){
                                 <div className="text-center">
                                     <h4><a href="prodpage86.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1306,7 +1306,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage91.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1326,7 +1326,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage92.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1346,7 +1346,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage93.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1366,7 +1366,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage94.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1386,7 +1386,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage95.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1406,7 +1406,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage96.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1426,7 +1426,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage97.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1446,7 +1446,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage98.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1466,7 +1466,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage99.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1486,7 +1486,7 @@ export function Category9(){
                                 <div className="text-center">
                                     <h4><a href="prodpage910.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1522,7 +1522,7 @@ export function Category10(){
                                 <div className="text-center">
                                     <h4><a href="prodpage101.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1542,7 +1542,7 @@ export function Category10(){
                                 <div className="text-center">
                                     <h4><a href="prodpage102.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1562,7 +1562,7 @@ export function Category10(){
                                 <div className="text-center">
                                     <h4><a href="prodpage103.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1582,7 +1582,7 @@ export function Category10(){
                                 <div className="text-center">
                                     <h4><a href="prodpage104.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -1603,7 +1603,7 @@ export function Category10(){
                                 <div className="text-center">
                                     <h4><a href="prodpage105.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">

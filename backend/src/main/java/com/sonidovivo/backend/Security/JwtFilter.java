@@ -22,20 +22,29 @@ public class JwtFilter extends OncePerRequestFilter {
     private CustomUserDetailsService userDetailsService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException{
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+            throws ServletException, IOException {
+
         String header = request.getHeader("Authorization");
 
-        if(header != null && header.startsWith("Bearer")){
-            String token = header.substring(7);
-            String correo = jwtService.exactCorreo(token);
+        if (header != null && header.startsWith("Bearer ")
+                && SecurityContextHolder.getContext().getAuthentication() == null) {
+            try {
+                String token = header.substring(7);
+                String correo = jwtService.exactCorreo(token);
 
-            UserDetails user = userDetailsService.loadUserByUsername(correo);
-            UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+                UserDetails user = userDetailsService.loadUserByUsername(correo);
+                UsernamePasswordAuthenticationToken auth =
+                        new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 
-            SecurityContextHolder.getContext().setAuthentication(auth);
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            } catch (Exception e) {
+                // Token inválido/expirado o usuario inexistente: seguimos sin autenticar.
+                // Los endpoints permitAll funcionan; los protegidos devolverán 401/403.
+                SecurityContextHolder.clearContext();
+            }
         }
 
         chain.doFilter(request, response);
     }
-
 }

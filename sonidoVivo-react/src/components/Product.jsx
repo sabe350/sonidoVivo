@@ -45,7 +45,7 @@ export function Product1() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  style={{maxWidth: '64px'}} />
@@ -105,7 +105,7 @@ export function Product12() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -165,7 +165,7 @@ export function Product13() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -225,7 +225,7 @@ export function Product14() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -285,7 +285,7 @@ export function Product15() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -345,7 +345,7 @@ export function Product2() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -405,7 +405,7 @@ export function Product21() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -466,7 +466,7 @@ export function Product22() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -527,7 +527,7 @@ export function Product23() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -588,7 +588,7 @@ export function Product24() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -648,7 +648,7 @@ export function Product3() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -708,7 +708,7 @@ export function Product31() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -768,7 +768,7 @@ export function Product32() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -828,7 +828,7 @@ export function Product4() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -888,7 +888,7 @@ export function Product41() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -948,7 +948,7 @@ export function Product42() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1008,7 +1008,7 @@ export function Product43() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1068,7 +1068,7 @@ export function Product44() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1128,7 +1128,7 @@ export function Product5() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1188,7 +1188,7 @@ export function Product51() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1247,7 +1247,7 @@ export function Product52() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1307,7 +1307,7 @@ export function Product53() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1367,7 +1367,7 @@ export function Product6() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1428,7 +1428,7 @@ export function Product61() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1489,7 +1489,7 @@ export function Product62() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1550,7 +1550,7 @@ export function Product63() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1610,7 +1610,7 @@ export function Product7() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1670,7 +1670,7 @@ export function Product71() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1730,7 +1730,7 @@ export function Product72() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1790,7 +1790,7 @@ export function Product73() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1850,7 +1850,7 @@ export function Product8() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1910,7 +1910,7 @@ export function Product81() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -1970,7 +1970,7 @@ export function Product82() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2030,7 +2030,7 @@ export function Product83() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2090,7 +2090,7 @@ export function Product84() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2150,7 +2150,7 @@ export function Product85() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2210,7 +2210,7 @@ export function Product9() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2270,7 +2270,7 @@ export function Product91() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2330,7 +2330,7 @@ export function Product92() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
@@ -2390,7 +2390,7 @@ export function Product93() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2450,7 +2450,7 @@ export function Product94() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2510,7 +2510,7 @@ export function Product95() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange='0' min= '1'  max={products?.srock} style={{maxWidth: '64px'}}/>
@@ -2570,7 +2570,7 @@ export function Product96() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2630,7 +2630,7 @@ export function Product97() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2690,7 +2690,7 @@ export function Product98() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2750,7 +2750,7 @@ export function Product99() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="num" defaultValue={'1'} onChange='0' min= '1'  style="max-width: 3rem"/>
@@ -2810,7 +2810,7 @@ export function Product10() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2870,7 +2870,7 @@ export function Product101() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2930,7 +2930,7 @@ export function Product102() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -2990,7 +2990,7 @@ export function Product103() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>
@@ -3050,7 +3050,7 @@ export function Product104() {
                             <span>Stock: {products?.stock}</span>
                         </div>
                         <div className="fs-5 mb-2">
-                            <span>${products?.precio}</span>   
+                            <span>${products?.precio.toLocaleString("es-CL")}</span>   
                         </div>
                         <div className="d-flex mb-3">
                             <input className="form-control text-center me-3" id="cantidad" type="number" defaultValue={'1'} onChange={e => setCantidad(Math.max(1, Number(e.target.value) || 1))} min= '1'  max={products?.stock} style={{maxWidth: '64px'}}/>

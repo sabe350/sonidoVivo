@@ -39,11 +39,11 @@ export function CartItem({id, quantity}: CartItemProps){
                     {item?.nombre} {quantity > 1 && <span className="text-muted" style={{ fontSize: ".65rem"}}>x{quantity}</span>}
                 </div>
                 <div className="text-muted" style={{fontSize: ".75rem"}}>
-                  {item?.precio}  
+                  ${item?.precio.toLocaleString("es-CL")}  
                 </div>
                 <div className="ms-auto fw-bold fs-5">
                     Total:  
-                    {item?.precio * quantity} 
+                     ${(item?.precio * quantity).toLocaleString("es-CL")} 
                 </div>
                 <Button variant="danger" size="sm" onClick={() => removeFromCart(item?.id)}>Quitar</Button>
             </div>

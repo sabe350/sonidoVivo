@@ -13,6 +13,7 @@ import ProductList from './components/ProductList'
 import ProductForm from './components/ProductForm'
 import { CartProvider } from './context/CartContext'
 import { AuthProvider } from './context/AuthContext'
+import Result from './components/Result'
 
 function App() {
   return (
@@ -89,9 +90,10 @@ function App() {
           <Route path='/prodpage103.html' element = {<Product102/>}/>
           <Route path='/prodpage104.html' element = {<Product103/>}/>
           <Route path='/prodpage105.html' element = {<Product104/>}/>
-          <Route path='/api' element={<ProductList/>}/>
-          <Route path='/api/add' element={<ProductForm/>}/>
-          <Route path='/api/edit/:id' element={<ProductForm/>}/>
+          <Route path='api' element={<ProductList/>}/>
+          <Route path='api/add' element={<ProductForm/>}/>
+          <Route path='api/edit/:id' element={<ProductForm/>}/>
+          <Route path='result' element={<Result/>}/>
         </Routes>
       </BrowserRouter>
     <Footer />

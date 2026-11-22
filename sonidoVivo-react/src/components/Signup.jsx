@@ -11,15 +11,37 @@ function Signup() {
     const [userpass2, setPassword2] = useState("");
     const [usermail, setMail] = useState("");
     const [userphone, setPhone] = useState("");
+    const [useradress, setAdress] = useState("");
+    const [usercity, setCity] = useState("");
+    const [userregion, setRegion] = useState("");
     const [mensaje, setMessage] = useState("");
     const [isChecked, setIsChecked] = useState(false);
     const navigate = useNavigate();
+
+    const regiones = [
+        "Región de Arica y Parinacota",
+        "Región de Tarapacá",
+        "Región de Antofagasta",
+        "Región de Atacama",
+        "Región de Coquimbo",
+        "Región de Valparaíso",
+        "Región Metropolitana de Santiago",
+        "Región de O'Higgins",
+        "Región del Maule",
+        "Región de Ñuble",
+        "Región del Biobío",
+        "Región de La Araucanía",
+        "Región de Los Ríos",
+        "Región de Los Lagos",
+        "Región de Aysén",
+        "Región de Magallanes"
+    ];
 
 
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  if (!username || !userlsname || !userpass || !userpass2 || !usermail || !userphone) {
+  if (!username || !userlsname || !userpass || !userpass2 || !usermail || !userphone || !useradress || !usercity || !userregion) {
     setMessage("Debe rellenar todos los campos");
     return;
   }
@@ -47,6 +69,9 @@ const handleSubmit = async (event) => {
       password: userpass,
       correo: usermail,
       telefono: Number(userphone),
+      direccion: useradress,
+      ciudad: usercity,
+      region: userregion
     });
     window.location.href = "login.html";
   } catch (error) {
@@ -132,9 +157,64 @@ const handleSubmit = async (event) => {
                             type="tel"
                             id="phone"
                             value={userphone}
+                            maxLength={9}
                             onChange={(e) => setPhone(e.target.value)}
                             className="form-control text-center"
                             placeholder="Ingrese su numero de telefono"/>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-md-6 mb-3'>
+                            <div className='dropdown'>
+                                <label for="region" className="form-label d-block">
+                                    Region
+                                </label>
+                                <button 
+                                    type="button"
+                                    className='btn btn-secondary dropdown-toggle bg-primary' 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false">
+                                    {userregion || "Seleccione su region"}
+                                </button>
+                                <ul className='dropdown-menu overflow-scroll w-100'
+                                style={{ maxHeight: "150px" }}>
+                                    {regiones.map((region) =>(
+                                        <li key={region}>
+                                            <button className={'dropdown-item ${userregion === region ? "active : ""}'}
+                                            onClick={() => setRegion(region)}
+                                            type="button">
+                                                {region}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                            <div className="col-md-6 mb-3">
+                            <label for="adress" className="form-label">
+                                Ciudad
+                            </label>
+                            <input 
+                                type="text"
+                                id="city"
+                                value={usercity}
+                                onChange={(e) => setCity(e.target.value)}
+                                className="form-control text-center"
+                                placeholder="Ingrese su ciudad"/>
+                        </div>
+
+                        <div className="mb-3">
+                            <label for="adress" className="form-label">
+                                Direccion
+                            </label>
+                            <input 
+                                type="text"
+                                id="adress"
+                                value={useradress}
+                                onChange={(e) => setAdress(e.target.value)}
+                                className="form-control text-center"
+                                placeholder="Ingrese su direccion"/>
+                        </div>
                     </div>
 
                     <div className="form-check">

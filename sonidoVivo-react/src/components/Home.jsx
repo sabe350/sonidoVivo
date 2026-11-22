@@ -31,7 +31,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage25.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -53,7 +53,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage3.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -75,7 +75,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage32.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -97,7 +97,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage44.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -119,7 +119,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage53.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -141,7 +141,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage63.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -163,7 +163,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage74.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -185,7 +185,7 @@ function Home() {
                                 <div className="text-center">
                                     <h4><a href="prodpage86.html" className="stretched-link text-black" style={{textDecoration: 'none'}}>{products?.nombre}</a></h4>
                                     <h5>{products?.marca} {products?.modelo}</h5>
-                                    ${products?.precio}
+                                    ${products?.precio.toLocaleString("es-CL")}
                                 </div>
                             </div>
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">

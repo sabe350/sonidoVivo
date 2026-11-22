@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItenOrder {
+public class ItemOrden {
     private String productId;
     private int cantidad;
 }

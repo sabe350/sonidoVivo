@@ -42,6 +42,9 @@ public class UsuarioController {
             existingUser.setNombre(User.getNombre());
             existingUser.setCorreo(User.getCorreo());
             existingUser.setApellido(User.getApellido());
+            existingUser.setRegion(User.getRegion());
+            existingUser.setCiudad(User.getCiudad());
+            existingUser.setDireccion(User.getDireccion());
             existingUser.setPassword(encoder.encode(User.getPassword()));
             existingUser.setTelefono(User.getTelefono());
             existingUser.setRole(Role.ROLE_USER);

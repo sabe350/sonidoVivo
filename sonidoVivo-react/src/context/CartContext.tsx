@@ -14,6 +14,7 @@ type CartContext = {
     decreaseCartQuantity: (id: string) => void
     removeFromCart: (id: string) => void
     addToCart: (id: string, quantity: number) => void
+    clearCart: () => void
     cartQuantity: number
     cartItems: CartItem[]
 }
@@ -70,6 +71,10 @@ export function CartProvider({ children }: CartProviderProps) {
         setCartItems(currentItems => currentItems.filter(item => item.id !== id))
     }
 
+    function clearCart() {
+        setCartItems([])
+    }
+
     function addToCart(id: string, quantity: number){
         setCartItems(currentItems => {
             if (currentItems.find(item => item.id === id) == null){
@@ -85,7 +90,7 @@ export function CartProvider({ children }: CartProviderProps) {
         <CartContext.Provider value={{
             openCart, closeCart, getItemQuantity,
             increaseCartQuantity, decreaseCartQuantity,
-            removeFromCart, addToCart, cartQuantity, cartItems
+            removeFromCart, addToCart, clearCart, cartQuantity, cartItems
         }}>
             {children}
             <Cart isOpen={isOpen} />
